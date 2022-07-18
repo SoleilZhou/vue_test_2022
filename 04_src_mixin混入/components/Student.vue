@@ -6,17 +6,16 @@
 </template>
 
 <script>
-    import {hunhe, hunhe2} from '../mixin'
+    import {hunhe,hunhe2} from '../mixin'
 
     export default {
-    name:'Student',
-    data() {
-        return{
-            name:'张三',
-            sex:'男'
-        }
-    },
-    //局部混入
-    mixins:[hunhe, hunhe2]
-}
+        name:'Student',
+        data() {
+            return{
+                name:'张三',
+                sex:'男'
+            }
+        },
+        mixins:[hunhe,hunhe2]
+    }
 </script>

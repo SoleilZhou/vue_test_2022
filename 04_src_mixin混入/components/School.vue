@@ -6,20 +6,19 @@
 </template>
 
 <script>
-import { hunhe, hunhe2 } from '../mixin'
+import {hunhe,hunhe2} from '../mixin'
 
 export default {
     name:'School',
-    data(){
-        return{
-            name:'尚硅谷',
-            address:'北京',
-            x:666
-        }
-    },
-    //局部混入
-    mixins :[hunhe, hunhe2] 
-}
+        data(){
+            return{
+                name:'尚硅谷',
+                address:'北京',
+                x:666
+            }
+        },
+        mixins:[hunhe,hunhe2]
+    }
 </script>
 
 <style >
