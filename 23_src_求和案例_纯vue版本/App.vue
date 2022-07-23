@@ -8,7 +8,8 @@
   import Count from './components/Count'
   export default {
     name: "App",
-    components: {Count},
+    comments: [Count],
+    components: { Count }
 }
 </script>
 
