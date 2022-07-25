@@ -27,19 +27,20 @@
         },
         computed:{
             //借助mapState生成计算属性,从stste中读取数据（数组写法）
-            ...mapState('countAbout',['sum','school','subject']),
-            ...mapState('personAbout',['personList']),
+            ...mapState(['sum','school','subject','personList']),
             //借助mapGetters生成计算属性,从getters中读取数据（数组写法）
-            ...mapGetters('countAbout',['bigSum']),
+            ...mapGetters(['bigSum']),
         },
         methods:{
             //借助mapMutations生成对应的方法，方法会调用commit去联系mutations（对象写法）
-            ...mapMutations('countAbout',{increment:'ADD',decrement:'MINUS'}),
+            ...mapMutations({increment:'ADD',decrement:'MINUS'}),
             //借助mapActions生成对应的方法，方法会调用dispatch去联系actions（对象写法）
-            ...mapActions('countAbout',{incrementOdd:'addOdd',inrementWait:'addWait'}),
+            ...mapActions({incrementOdd:'addOdd',inrementWait:'addWait'}),
    
         },
         mounted(){
+            const x = mapState({sum:'sum',school:'school',subject:'subject'})
+            console.log(x)
         }
     }
 </script>

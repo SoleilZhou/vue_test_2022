@@ -70,11 +70,11 @@
             ...mapActions({incrementOdd:'addOdd',inrementWait:'addWait'}),
    
             //借助mapActions生成对应的方法，方法会调用dispatch去联系actions（数组写法）
-            ...mapActions(['addOdd','addWait'])
+            //...mapActions(['addOdd','addWait'])
         },
         mounted(){
-            const x = mapState({sum:'sum',school:'school',subject:'subject'})
-            console.log(x)
+            // const x = mapState({sum:'sum',school:'school',subject:'subject'})
+            // console.log(x)
         }
     }
 </script>

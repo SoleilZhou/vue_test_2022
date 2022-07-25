@@ -32,11 +32,11 @@ const actions = {
 //准备mutations--用于操作数据（state）
 const mutations = {
     ADD(state,value){
-        console.log('mutats中的ADD被调用了')
+        console.log('mutations中的ADD被调用了')
         state.sum += value
     },
     MINUS(state,value){
-        console.log('mutats中的MINUS被调用了')
+        console.log('mutations中的MINUS被调用了')
         state.sum -= value
     },
 }
