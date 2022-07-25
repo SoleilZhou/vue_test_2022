@@ -8,15 +8,15 @@
             <option value="2">2</option>
             <option value="3">3</option>
         </select>
-        <button @click="increment(n)">+</button>
-        <button @click="decrement(n)">-</button>
-        <button @click="incrementOdd(n)">当前求和为奇数再加</button>
-        <button @click="incrementWait(n)">等一等再加</button>
+        <button @click="increment">+</button>
+        <button @click="decrement">-</button>
+        <button @click="incrementOdd">当前求和为奇数再加</button>
+        <button @click="incrementWait">等一等再加</button>
     </div>
 </template>
 
 <script>
-    import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
+    import {mapState,mapGetters} from 'vuex'
     export default {
         name:'',
         data() {
@@ -25,6 +25,17 @@
             }
         },
         computed:{
+            //靠程序员亲自去写计算属性
+            /* sum(){
+                return this.$store.state.sum
+            },
+            school(){
+                return this.$store.state.school
+            },
+            subject(){
+                 return this.$store.state.subject
+            }, */
+
             //借助mapState生成计算属性,从stste中读取数据（对象写法）
             // ...mapState({sum:'sum',school:'school',subject:'subject'}),
            
@@ -32,7 +43,9 @@
             ...mapState(['sum','school','subject']),
 
             /* ********** 此处是分界线 ********** */
-
+            /* bigSum(){
+                return this.$store.getters.bigSum
+            } */
             //借助mapGetters生成计算属性,从getters中读取数据（对象写法）
             // ...mapGetters({bigSum:'bigSum'}),
            
@@ -42,35 +55,18 @@
 
         },
         methods:{
-            //程序员亲自写方法
-            /* increment(){
+            increment(){
                 this.$store.commit('ADD',this.n)
             },
             decrement(){
                 this.$store.commit('MINUS',this.n)
-            }, */
-
-            //借助mapMutations生成对应的方法，方法会调用commit去联系mutations（对象写法）
-            ...mapMutations({increment:'ADD',decrement:'MINUS'}),
-
-            //借助mapMutations生成对应的方法，方法会调用commit去联系mutations（数组写法）
-            // ...mapMutations(['ADD','MINUS']),
-             
-            
-            /* ********** 此处是分界线 ********** */
-
-           /*  incrementOdd(){
+            },
+            incrementOdd(){
                 this.$store.dispatch('addOdd',this.n)
             },
             incrementWait(){
                 this.$store.dispatch('addWait',this.n)
-            } */
-
-            //借助mapActions生成对应的方法，方法会调用dispatch去联系actions（对象写法）
-            ...mapActions({incrementOdd:'addOdd',inrementWait:'addWait'}),
-   
-            //借助mapActions生成对应的方法，方法会调用dispatch去联系actions（数组写法）
-            ...mapActions(['addOdd','addWait'])
+            }
         },
         mounted(){
             const x = mapState({sum:'sum',school:'school',subject:'subject'})
