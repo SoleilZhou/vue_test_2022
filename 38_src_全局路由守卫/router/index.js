@@ -14,7 +14,7 @@ const router = new VueRouter({
             name:'guanyu',
             path:'/about',
             component:About,
-            meta:{isAuth:true,title:'关于'}
+            meta:{title:'关于'}
         },
         {
             name:'zhuye',
@@ -27,17 +27,6 @@ const router = new VueRouter({
                     path:'news',
                     component:News,
                     meta:{isAuth:true,title:'新闻'},
-                    beforeEnter:(to,from,next) => {
-                        if(to.meta.isAuth){ //判断是否需要鉴权
-                            if(localStorage.getItem('school') === 'atguigu'){
-                                next()
-                            }else{
-                                alert('学校名不对，无权查看页面')
-                            }
-                        }else{
-                            next()
-                        }
-                    }
                 },
                 {
                     name:'xiaoxi',
@@ -69,7 +58,7 @@ const router = new VueRouter({
 })
 
 //全局前置路由守卫--初始化、每次路由切换之前被调用
-/* router.beforeEach((to,from,next) => {
+router.beforeEach((to,from,next) => {
     console.log('前置路由守卫',to,from)
     if(to.meta.isAuth){ //判断是否需要鉴权
         if(localStorage.getItem('school') === 'atguigu'){
@@ -80,7 +69,7 @@ const router = new VueRouter({
     }else{
         next()
     }
-}) */
+})
 
 //全局后置路由守卫--
 router.afterEach((to,from) => {

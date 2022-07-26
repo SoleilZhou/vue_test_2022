@@ -14,7 +14,7 @@ const router = new VueRouter({
             name:'guanyu',
             path:'/about',
             component:About,
-            meta:{isAuth:true,title:'关于'}
+            meta:{title:'关于'}
         },
         {
             name:'zhuye',
@@ -28,6 +28,7 @@ const router = new VueRouter({
                     component:News,
                     meta:{isAuth:true,title:'新闻'},
                     beforeEnter:(to,from,next) => {
+                        console.log('独享路由守卫',to, from)
                         if(to.meta.isAuth){ //判断是否需要鉴权
                             if(localStorage.getItem('school') === 'atguigu'){
                                 next()
